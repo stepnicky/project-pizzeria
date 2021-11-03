@@ -196,7 +196,7 @@
           if(optionImage){
             console.log('optionImage: ', optionImage);
              
-            if (formData[paramId] && formData[paramId].includes[optionId]){
+            if (formData[paramId] && formData[paramId].includes(optionId)){
               optionImage.classList.add(classNames.menuProduct.imageVisible);
             } else {
               optionImage.classList.remove(classNames.menuProduct.imageVisible);
