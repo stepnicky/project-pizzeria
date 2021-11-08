@@ -268,7 +268,7 @@
     addToCart(){
       const thisProduct = this;
 
-      app.cart.add(thisProduct.prepareCartProduct);
+      app.cart.add(thisProduct.prepareCartProduct());
     }
     prepareCartProduct(){
       const thisProduct = this;
@@ -284,14 +284,60 @@
 
       const productSummary = {};
       productSummary.id = thisProduct.id;
-      productSummary.name = thisProduct.name;
+      productSummary.name = thisProduct.data.name;
       productSummary.amount = thisProduct.amountWidget.value;
       productSummary.priceSingle = thisProduct.priceSingle;
       productSummary.price = productSummary.priceSingle * productSummary.amount;
-      productSummary.params = {};
+      productSummary.params = thisProduct.prepareCartProductParams();
       
       
       return productSummary;
+    }
+    prepareCartProductParams(){
+      const thisProduct = this;
+
+      // convert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
+      
+      const formData = utils.serializeFormToObject(thisProduct.dom.form);
+      
+
+      // declare cartProductParams
+      
+      const cartProductParams = {};
+
+      
+      // for every category (param)...
+
+      for(let paramId in thisProduct.data.params) {
+        
+        // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
+        
+        const param = thisProduct.data.params[paramId];
+
+        // create category param in cartProductParams const eg. params = { ingredients: { label: 'Ingredients', options: {}}}
+
+        cartProductParams[paramId] = {
+          label: param.label,
+          options: {},
+        };
+
+        // for every option in this category
+        
+        for(let optionId in param.options) {
+        
+          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
+        
+          const option = param.options[optionId];
+          
+          // if selected add option id and label
+
+          if(formData[paramId] && formData[paramId].includes(optionId)){
+            cartProductParams[paramId].options[optionId] = option.label;
+          } 
+        }
+     
+      } 
+      return cartProductParams;
     }
   }
 
