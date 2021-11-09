@@ -468,13 +468,16 @@
 
       if(totalNumber != 0){
         thisCart.totalPrice = subtotalPrice + deliveryFee;
+        thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+      } else{
+        subtotalPrice = 0;
+        thisCart.totalPrice = subtotalPrice;
+        
       }
 
       console.log('totalNumber: ', totalNumber);
       console.log('subtotalPrice: ', subtotalPrice);
       console.log('thisCart.totalPrice: ', thisCart.totalPrice);
-    
-      thisCart.dom.deliveryFee.innerHTML = deliveryFee;
 
       thisCart.dom.subtotalPrice.innerHTML = subtotalPrice;
       
