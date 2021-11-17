@@ -1,0 +1,17 @@
+**/*.png
+**/*.gif
+**/*.svg
+**/*.jpg
+**/*.txt
+.vscode/**
+src/.tmp/**
+node_modules/**
+dist/**
+coverage/**
+**/*.sh
+**/*.feature
+**/*.properties
+.editorconfig
+.gitattributes
+.gitignore
+.prettierignore
