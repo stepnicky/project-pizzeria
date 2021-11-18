@@ -35,7 +35,6 @@ class Product {
     // add element to menu
 
     menuContainer.appendChild(thisProduct.element);
-
   }
 
   getElements() {
@@ -57,7 +56,6 @@ class Product {
     /* START: add event listener to clickable trigger on event click */
 
     thisProduct.dom.accordionTrigger.addEventListener('click', function (event) {
-
       /* prevent default action for event */
 
       event.preventDefault();
@@ -71,15 +69,11 @@ class Product {
       if (activeProduct !== thisProduct.element && activeProduct !== null) {
         console.log('activeProduct: ', activeProduct);
         activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
-
       }
 
       /* toggle active class on thisProduct.element */
 
-
       thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
-
-
     });
   }
 
@@ -118,11 +112,9 @@ class Product {
 
     let price = thisProduct.data.price;
 
-
     // for every category (param)...
 
     for (let paramId in thisProduct.data.params) {
-
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
 
       const param = thisProduct.data.params[paramId];
@@ -131,7 +123,6 @@ class Product {
       // for every option in this category
 
       for (let optionId in param.options) {
-
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
 
         const option = param.options[optionId];
@@ -187,8 +178,8 @@ class Product {
     const event = new CustomEvent('add-to-cart', {
       bubbles: true,
       detail: {
-        product: thisProduct,
-      },
+        product: thisProduct.prepareCartProduct()
+      }
     });
 
     thisProduct.element.dispatchEvent(event);
@@ -203,8 +194,7 @@ class Product {
     productSummary.priceSingle = thisProduct.priceSingle;
     productSummary.price = productSummary.priceSingle * productSummary.amount;
     productSummary.params = thisProduct.prepareCartProductParams();
-
-
+    console.log('productSummary: ', productSummary);
     return productSummary;
   }
   prepareCartProductParams() {
@@ -213,32 +203,29 @@ class Product {
     // convert form to object structure e.g. { sauce: ['tomato'], toppings: ['olives', 'redPeppers']}
 
     const formData = utils.serializeFormToObject(thisProduct.dom.form);
-
-
+    console.log('formData, ', formData);
     // declare cartProductParams
 
     const cartProductParams = {};
 
-
     // for every category (param)...
 
     for (let paramId in thisProduct.data.params) {
-
       // determine param value, e.g. paramId = 'toppings', param = { label: 'Toppings', type: 'checkboxes'... }
 
       const param = thisProduct.data.params[paramId];
+      console.log('param: ', param);
 
       // create category param in cartProductParams const eg. params = { ingredients: { label: 'Ingredients', options: {}}}
 
       cartProductParams[paramId] = {
         label: param.label,
-        options: {},
+        options: {}
       };
 
       // for every option in this category
 
       for (let optionId in param.options) {
-
         // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
 
         const option = param.options[optionId];
@@ -249,7 +236,6 @@ class Product {
           cartProductParams[paramId].options[optionId] = option.label;
         }
       }
-
     }
     return cartProductParams;
   }

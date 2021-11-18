@@ -2,8 +2,6 @@ import { settings, select, classNames, templates } from '../settings.js';
 import CartProduct from './cartproduct.js';
 import utils from '../utils.js';
 
-
-
 class Cart {
   constructor(element) {
     const thisCart = this;
@@ -58,6 +56,7 @@ class Cart {
     const generatedHTML = templates.cartProduct(menuProduct);
 
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+    console.log('generatedDOM: ', generatedDOM);
 
     thisCart.dom.productList.appendChild(generatedDOM);
 
@@ -103,7 +102,6 @@ class Cart {
     }
 
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
-
   }
   remove(removedProduct) {
     const thisCart = this;
@@ -148,8 +146,6 @@ class Cart {
     };
 
     fetch(url, options);
-
-
   }
 }
 

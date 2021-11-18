@@ -12,6 +12,7 @@ const app = {
     thisApp.productList = document.querySelector(select.containerOf.menu);
 
     thisApp.productList.addEventListener('add-to-cart', function (event) {
+      console.log('add-to-cart event: ', event);
       app.cart.add(event.detail.product);
     });
   },
@@ -39,7 +40,6 @@ const app = {
         thisApp.data.products = parsedResponse;
 
         thisApp.initMenu();
-
       });
 
     console.log('thisApp.data: ', JSON.stringify(thisApp.data));
@@ -53,7 +53,7 @@ const app = {
     console.log('templates:', templates);
     thisApp.initData();
     thisApp.initCart();
-  },
+  }
 };
 
 app.init();

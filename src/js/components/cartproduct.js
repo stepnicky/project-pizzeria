@@ -1,9 +1,9 @@
 import { select } from '../settings.js';
 import AmountWidget from './amountwidget.js';
 
-
 class CartProduct {
   constructor(menuProduct, element) {
+    console.log('menuProduct: ', menuProduct);
     const thisCartProduct = this;
 
     thisCartProduct.id = menuProduct.id;
@@ -29,7 +29,6 @@ class CartProduct {
     thisCartProduct.dom.price = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.price);
     thisCartProduct.dom.edit = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.edit);
     thisCartProduct.dom.remove = thisCartProduct.dom.wrapper.querySelector(select.cartProduct.remove);
-
   }
   initAmountWidget() {
     const thisCartProduct = this;
@@ -41,7 +40,6 @@ class CartProduct {
       thisCartProduct.price = thisCartProduct.amount * thisCartProduct.priceSingle;
       thisCartProduct.dom.price.innerHTML = thisCartProduct.price;
     });
-
   }
   remove() {
     const thisCartProduct = this;
@@ -51,8 +49,8 @@ class CartProduct {
     const event = new CustomEvent('remove', {
       bubbles: true,
       detail: {
-        cartProduct: thisCartProduct,
-      },
+        cartProduct: thisCartProduct
+      }
     });
 
     thisCartProduct.dom.wrapper.dispatchEvent(event);
@@ -62,7 +60,6 @@ class CartProduct {
 
     thisCartProduct.dom.edit.addEventListener('click', function (event) {
       event.preventDefault();
-
     });
 
     thisCartProduct.dom.remove.addEventListener('click', function (event) {
