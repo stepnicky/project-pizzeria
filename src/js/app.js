@@ -9,7 +9,7 @@ const app = {
 
     const bookingContainer = document.querySelector(select.containerOf.booking);
 
-    new Booking(bookingContainer);
+    thisApp.bookingWidget = new Booking(bookingContainer);
   },
   initPages: function () {
     const thisApp = this;
