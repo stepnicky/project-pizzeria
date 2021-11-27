@@ -188,6 +188,9 @@
         opacity: 0.4;
       }
     }
+    &.selected {
+      background-color: rgba(246, 199, 119, 0.6);
+    }
   }
 
   [data-table='1'] {

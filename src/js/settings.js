@@ -8,12 +8,14 @@ export const select = {
     menu: '#product-list',
     cart: '#cart',
     pages: '#pages',
-    booking: '.booking-wrapper'
+    booking: '.booking-wrapper',
+    tables: '.floor-plan'
   },
   all: {
     menuProducts: '#product-list > .product',
     menuProductsActive: '#product-list > .product.active',
-    formInputs: 'input, select'
+    formInputs: 'input, select',
+    tableSelected: '.floor-plan > .selected'
   },
   menuProduct: {
     clickable: '.product__header',
@@ -42,7 +44,11 @@ export const select = {
   booking: {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
-    tables: '.floor-plan .table'
+    tables: '.floor-plan .table',
+    phone: '.order-confirmation > input[name="phone"]',
+    address: '.order-confirmation > input[name="address"]',
+    starters: 'input[name="starter"]',
+    form: '.booking-form'
   },
   nav: {
     links: '.main-nav a'
@@ -78,7 +84,9 @@ export const classNames = {
   },
   booking: {
     loading: 'loading',
-    tableBooked: 'booked'
+    table: 'table',
+    tableBooked: 'booked',
+    tableSelected: 'selected'
   },
   nav: {
     active: 'active'
@@ -113,8 +121,8 @@ export const settings = {
     orders: 'orders',
     product: 'product',
     order: 'order',
-    booking: 'booking',
-    event: 'event',
+    bookings: 'bookings',
+    events: 'events',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',

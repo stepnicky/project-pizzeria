@@ -9,6 +9,8 @@ class AmountWidget extends BaseWidget {
 
     thisWidget.getElements();
 
+    thisWidget.setValue(thisWidget.dom.input.value);
+
     thisWidget.initActions();
 
     console.log('AmountWidget: ', thisWidget);
