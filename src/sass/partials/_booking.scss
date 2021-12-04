@@ -167,10 +167,9 @@
 
     &--round {
       border-radius: 50%;
-
-      &::after {
-        border-radius: 50%;
-      }
+      // &::after {
+      //   border-radius: 50%;
+      // }
     }
 
     &.booked {

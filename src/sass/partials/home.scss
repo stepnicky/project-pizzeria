@@ -1,10 +1,14 @@
+.home-wrapper {
+  padding: 0;
+}
+
 .home {
   margin: (12px * 3.5) auto;
-  padding: (12px * 6) (#333 * 4);
   background: #fff;
   border-bottom: 1px solid lighten(#333, 70%);
   border-radius: 4px;
 }
+
 // splash
 
 .splash {
@@ -34,12 +38,15 @@
     display: inline-block;
     width: 100%;
   }
+
   &:hover {
     cursor: pointer;
+
     .order-title {
       top: 20%;
     }
   }
+
   img {
     height: 100%;
     width: 100%;
@@ -47,12 +54,14 @@
     border-radius: 3%;
   }
 }
+
 .book-table {
   margin: 50px 40px 3px 2px;
   height: 100px;
   width: 350px;
   flex: 38%;
   position: relative;
+
   .booking-title {
     position: absolute;
     left: 50%;
@@ -63,12 +72,15 @@
     display: inline-block;
     width: 100%;
   }
+
   &:hover {
     cursor: pointer;
+
     .booking-title {
       top: 20%;
     }
   }
+
   img {
     height: 100%;
     width: 100%;
@@ -76,6 +88,7 @@
     border-radius: 3%;
   }
 }
+
 .opening-hours {
   flex: 100%;
   border-radius: 3%;
@@ -84,6 +97,7 @@
   width: 205px;
   height: 100px;
   margin: 0 40px 50px 40px;
+
   .inner > h2 {
     line-height: 1;
   }
@@ -101,11 +115,13 @@
   height: 200px;
   background: #fff;
   border-radius: 5px;
+
   img {
     flex: 40%;
     object-fit: cover;
     border-radius: 3%;
   }
+
   .carousel-text {
     margin-left: 30px;
     flex: 40%;
@@ -119,10 +135,11 @@
   margin: 0 40px 0 40px;
   justify-content: space-between;
 }
+
 .image-container {
   position: relative;
   flex: 33.333%;
-  height: 150px;
+  height: 200px;
   width: 150px;
   margin: 5px 5px 5px 5px;
   transition: all 0.5s;
@@ -133,6 +150,7 @@
     border-radius: 3%;
     object-fit: cover;
   }
+
   .like-share {
     position: absolute;
     top: 50%;
@@ -141,6 +159,7 @@
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s;
+
     i {
       color: #fff;
       font-size: 12px;
@@ -150,15 +169,19 @@
     }
   }
 }
+
 .image-container:hover {
   cursor: pointer;
+
   .like-share {
     visibility: visible;
     opacity: 1;
   }
+
   .like-share i {
     font-size: 30px;
     transition: all 0.5s;
+
     &:hover {
       color: #ff6b6b;
     }
@@ -169,6 +192,7 @@
 
 footer {
   margin: 35px 0 95px 45px;
+
   a {
     color: rgb(125, 136, 146);
   }
